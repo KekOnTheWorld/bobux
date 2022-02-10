@@ -1,0 +1,97 @@
+const success_urls = [
+    "https://c.tenor.com/519Y2RSwMXwAAAAC/thumbs-up-emoji.gif",
+    "https://c.tenor.com/FmlWAMtuG14AAAAS/ok-thumbs-up.gif",
+    "https://c.tenor.com/Bawxk-2WJacAAAAM/donald-trump-thumbs-up.gif",
+    "https://c.tenor.com/0kHnKZPsfq4AAAAC/emoji-emojis.gif",
+    "https://c.tenor.com/yYs3rlgP4qQAAAAM/keanu-keanu-reeves.gif",
+    "https://c.tenor.com/-Uelvm-zoxkAAAAC/thumbs-up.gif"
+];
+
+// Stolen from https://tjcteam.de/adminbewerbung/
+const links = [
+    "https://www.youtube.com/watch?v=dQw4w9WgXcQ", // Original
+    "https://www.youtube.com/watch?v=bPZSDBvDmVw", // Lofi-Remix
+    "https://www.youtube.com/watch?v=wpV-gGA4PSk", // Never Gonna Hit Those Notes
+    "https://youtu.be/VbUuB1aN2DA?t=15", // Live   
+    "https://www.youtube.com/watch?v=ur560pZKRfg?t=41", // Google Translator
+    "https://www.youtube.com/watch?v=BjDebmqFRuc", // Voice Crack
+    "https://www.youtube.com/watch?v=GHMjD0Lp5DY", // Pianoforte
+    "https://youtu.be/8leAAwMIigI?t=10", // Karaoke
+    "https://www.youtube.com/watch?v=u4D1enUJYuU", // Vaporwave
+    "https://www.youtube.com/watch?v=CY1mx48_D8E", // Get Bugged
+    "https://www.youtube.com/watch?v=cvh0nX08nRw", // It never starts
+    "https://www.youtube.com/watch?v=2942BB1JXFk", // Lego Version
+    "https://www.youtube.com/watch?v=pUvwleVGVmA", // Without Music
+    "https://youtu.be/iJgNpm8cTE8?t=8", // AI Generated
+    "https://www.youtube.com/watch?v=f-tLr7vONmc", // Ralph Breaks the Internet
+    "https://www.youtube.com/watch?v=W5BxWMD8f_w", // Lachen
+    "https://www.youtube.com/watch?v=PZqx-lMZHM0" // JPOP Cover    
+];
+
+
+
+const username = document.getElementById("username");
+const step1 = document.getElementById("step1");
+step1.addEventListener("submit", function(e) {
+    e.preventDefault();
+    let un = username.value;
+    if(un.replace(" ", "").length >= 4) {
+        step1.style = "display: none;";
+        showLoading("Verifying username...");
+        makeRandomSuccess();
+        setTimeout(function() {
+            hideLoading();
+            showSuccess();
+            setTimeout(function() {
+                hideSuccess();
+                step2.style = "";
+            }, 3000);
+        }, 4000);
+    }
+});
+
+const step2 = document.getElementById("step2");
+step2.addEventListener("submit", function(e) {
+    e.preventDefault();
+    step2.style = "display: none;";
+    showLoading("Checking amount...");
+    makeRandomSuccess();
+    setTimeout(function() {
+        hideLoading();
+            showSuccess();
+            setTimeout(function() {
+                window.location.href = links[(Math.random() * links.length).toFixed(0)];
+            }, 3000);
+    }, 4000);
+});
+
+
+const successIMG = document.getElementById("success-img");
+const success = document.getElementById("success");
+
+const loading = document.getElementById("loading");
+const loadingMSG = document.getElementById("loading-msg");
+
+function makeRandomSuccess() {
+    successIMG.src = success_urls[(Math.random() * success_urls.length).toFixed(0)];
+}
+
+function showSuccess() {
+    success.style = "";
+}
+
+function hideSuccess() {
+    success.style = "display: none;";
+}
+
+function showLoading(msg) {
+    loadingMSG.innerText = msg;
+    loading.style = "";
+}
+
+function hideLoading() {
+    loading.style = "display: none;";
+}
+
+
+//randomSuccess();
