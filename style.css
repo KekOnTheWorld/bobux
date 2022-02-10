@@ -32,7 +32,7 @@ body {
 .card {
     background-color: rgb(22, 22, 22);
     width: 100%;
-    max-width: 600px;
+    max-width: 800px;
     display: flex;
     align-items: center;
     justify-content: center;
