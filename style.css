@@ -49,6 +49,10 @@ body {
     margin-bottom: 30px;
 }
 
+#username {
+    max-width: 100vw;
+}
+
 .avatar {
     display: flex;
     justify-content: center;
