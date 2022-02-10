@@ -4,7 +4,8 @@ const success_urls = [
     "https://c.tenor.com/Bawxk-2WJacAAAAM/donald-trump-thumbs-up.gif",
     "https://c.tenor.com/0kHnKZPsfq4AAAAC/emoji-emojis.gif",
     "https://c.tenor.com/yYs3rlgP4qQAAAAM/keanu-keanu-reeves.gif",
-    "https://c.tenor.com/-Uelvm-zoxkAAAAC/thumbs-up.gif"
+    "https://c.tenor.com/-Uelvm-zoxkAAAAC/thumbs-up.gif",
+    "https://c.tenor.com/fsNVuw28I1wAAAAM/victory-yeti.gif"
 ];
 
 // Stolen from https://tjcteam.de/adminbewerbung/
