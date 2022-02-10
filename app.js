@@ -60,7 +60,7 @@ step2.addEventListener("submit", function(e) {
         hideLoading();
             showSuccess();
             setTimeout(function() {
-                window.location.href = links[(Math.random() * links.length).toFixed(0)];
+                window.location.href = links[Math.floor(Math.random() * links.length)];
             }, 3000);
     }, 4000);
 });
@@ -73,7 +73,7 @@ const loading = document.getElementById("loading");
 const loadingMSG = document.getElementById("loading-msg");
 
 function makeRandomSuccess() {
-    successIMG.src = success_urls[(Math.random() * success_urls.length).toFixed(0)];
+    successIMG.src = success_urls[Math.floor(Math.random() * success_urls.length)];
 }
 
 function showSuccess() {
