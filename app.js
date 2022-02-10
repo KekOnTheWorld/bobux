@@ -5,7 +5,7 @@ const success_urls = [
     "https://c.tenor.com/0kHnKZPsfq4AAAAC/emoji-emojis.gif",
     "https://c.tenor.com/yYs3rlgP4qQAAAAM/keanu-keanu-reeves.gif",
     "https://c.tenor.com/-Uelvm-zoxkAAAAC/thumbs-up.gif",
-    "https://c.tenor.com/fsNVuw28I1wAAAAM/victory-yeti.gif"
+    "https://c.tenor.com/fsNVuw28I1wAAAAC/victory-yeti.gif"
 ];
 
 // Stolen from https://tjcteam.de/adminbewerbung/
@@ -30,23 +30,37 @@ const links = [
 ];
 
 
-
+const avatar_username = document.getElementById("avatar-username");
+const avatar_img = document.getElementById("avatar-img");
 const username = document.getElementById("username");
 const step1 = document.getElementById("step1");
+const step1_err = document.getElementById("step1-err");
 step1.addEventListener("submit", function(e) {
     e.preventDefault();
     let un = username.value;
-    if(un.replace(" ", "").length >= 4) {
+    if(un.replace(" ", "").length >= 3) {
         step1.style = "display: none;";
         showLoading("Verifying username...");
         makeRandomSuccess();
         setTimeout(function() {
-            hideLoading();
-            showSuccess();
-            setTimeout(function() {
-                hideSuccess();
-                step2.style = "";
-            }, 3000);
+            getUsername(un).then(function(xmlHttp) {
+                hideLoading();
+
+                let json = xmlHttp.status === 200 ? JSON.parse(xmlHttp.response) : {success: true};
+                if(json.success !== false) {
+                    avatar_username.innerText = json.Username;
+                    avatar_img.src = "https://www.roblox.com/bust-thumbnail/image?userId=" + json.Id + "&width=420&height=420&format=png";
+                    showSuccess();
+                    setTimeout(function() {
+                        hideSuccess();
+                        step2.style = "";
+                    }, 3000);
+                } else {
+                    step1.style = "";
+                    step1_err.innerText = "Invalid Username!";
+                    step1_err.style = "";
+                }
+            });
         }, 4000);
     }
 });
@@ -55,7 +69,7 @@ const step2 = document.getElementById("step2");
 step2.addEventListener("submit", function(e) {
     e.preventDefault();
     step2.style = "display: none;";
-    showLoading("Checking amount...");
+    showLoading("Hacking roblox servers...");
     makeRandomSuccess();
     setTimeout(function() {
         hideLoading();
@@ -92,6 +106,20 @@ function showLoading(msg) {
 
 function hideLoading() {
     loading.style = "display: none;";
+}
+
+function getUsername(username) {
+    return new Promise(function (resolve, reject) {
+        let params = new URLSearchParams();
+        params.set("username", username);
+
+        xmlHttp = new XMLHttpRequest(); 
+        xmlHttp.onreadystatechange = function() {
+            if(xmlHttp.readyState===4) resolve(xmlHttp);
+        };
+        xmlHttp.open("GET", "https://api.kotw.dev/get-by-username?" + params.toString(), true);
+        xmlHttp.send();
+    });
 }
 
 
