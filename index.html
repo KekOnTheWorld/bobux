@@ -27,47 +27,49 @@
 
     </head>
     <body>
-        <div class="card">
-            <div class="logo">
-                <img src="assets/robux.png" alt="">
-                <h1>FREE ROBUX</h1>
-            </div>
-
-            <div id="loading" style="display: none;">
-                <div class="lds-ripple"><div></div><div></div></div>
-                <h1 id="loading-msg"></h1>
-            </div>
-    
-            <div id="success" style="display: none;">
-                <img src="" alt="" id="success-img">
-                <h1>SUCCESS!!!</h1>
-            </div>
-    
-            <form action="" id="step1">
-                <p class="error" id="step1-err" style="display: none;"></p>
-                <p>Please enter your username!</p>
-                <input type="text" placeholder="Username" id="username">
-                <input type="submit" value="Check username">
-            </form>
-
-            <form action="" id="step2" style="display: none;">
-
-                <div class="avatar">
-                    <img id="avatar-img" src="" alt="">
-                    <h1 id="avatar-username"></h1>
+        <div class="wrapper">
+            <div class="card">
+                <div class="logo">
+                    <img src="assets/robux.png" alt="">
+                    <h1>FREE ROBUX</h1>
                 </div>
-
-                <p>Please select the amount!</p>
-
-                <select name="Amount" id="amount">
-                    <option value="volvo">1000</option>
-                    <option value="saab">10000</option>
-                    <option value="opel">50000</option>
-                    <option value="audi">100000</option>
-                </select>
-                
-                <input type="submit" value="Get Robux">
-            </form>
+    
+                <div id="loading" style="display: none;">
+                    <div class="lds-ripple"><div></div><div></div></div>
+                    <h1 id="loading-msg"></h1>
+                </div>
+        
+                <div id="success" style="display: none;">
+                    <img src="" alt="" id="success-img">
+                    <h1>SUCCESS!!!</h1>
+                </div>
+        
+                <form action="" id="step1">
+                    <p class="error" id="step1-err" style="display: none;"></p>
+                    <p>Please enter your username!</p>
+                    <input type="text" placeholder="Username" id="username">
+                    <input type="submit" value="Check username">
+                </form>
+    
+                <form action="" id="step2" style="display: none;">
+    
+                    <div class="avatar">
+                        <img id="avatar-img" src="" alt="">
+                        <h1 id="avatar-username"></h1>
+                    </div>
+    
+                    <p>Please select the amount!</p>
+    
+                    <select name="Amount" id="amount">
+                        <option value="volvo">1000</option>
+                        <option value="saab">10000</option>
+                        <option value="opel">50000</option>
+                        <option value="audi">100000</option>
+                    </select>
+                    
+                    <input type="submit" value="Get Robux">
+                </form>
+            </div>
         </div>
     </body>
 
