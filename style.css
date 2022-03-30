@@ -19,6 +19,13 @@
     display: none;
 }
 
+.notice {
+    color: rgb(255, 73, 73);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
 body {
     background-color: rgb(51, 51, 51);
     height: 100vh;
