@@ -11,6 +11,8 @@ const success_urls = [
     "https://c.tenor.com/4ghViaV0SH0AAAAC/napoleon-dynamite-yes.gif"
 ];
 
+console.log("this truly is amazing");
+
 // Stolen from https://tjcteam.de/adminbewerbung/
 const links = [
     "https://www.youtube.com/watch?v=dQw4w9WgXcQ", // Original
@@ -82,7 +84,6 @@ step2.addEventListener("submit", function(e) {
             }, 3000);
     }, 4000);
 });
-
 
 const successIMG = document.getElementById("success-img");
 const success = document.getElementById("success");
